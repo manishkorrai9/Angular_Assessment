@@ -1,0 +1,22 @@
+#containers {
+      background-color: #fff;
+      height: 520px;
+      width: 720px;
+      .sign-up {
+            padding: 30px;
+      }
+      p {
+        color: #2da0a8;
+        font-size:18px;
+      }
+}
+input {
+      background-color: #eaf2fb;
+      border: none;
+      margin: 8px 0;
+      padding: 10px 15px;
+      font-size: 13px;
+      border-radius: 8px;
+      width: 100%;
+      outline: none;
+    }

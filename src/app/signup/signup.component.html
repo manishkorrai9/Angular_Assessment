@@ -1,0 +1,46 @@
+<div class="containers" id="containers">
+      <div class="form-containers sign-up">
+        <form [formGroup]="signUpForm">
+          <h1 class="text-center">Create Account</h1>
+          <p class="text-center">Use your email for registration</p>
+          
+          <div>
+            <label>Full Name <span class="text-danger">*</span></label><br>
+            <input class="form-control" formControlName="name" placeholder="Enter your name" autocomplete="off">
+          </div>
+          
+          <div>
+            <label>Email Address <span class="text-danger">*</span></label><br>
+            <input class="form-control" formControlName="email" placeholder="Enter your email" type="email" autocomplete="off">
+          </div>
+          
+          <div>
+            <label>Password <span class="text-danger">*</span></label><br>
+            <div class="input-group d-flex justify-content-center align-items-center">
+              <input class="form-control" formControlName="password" placeholder="Enter your password" type="{{ passwordHidden ? 'password' : 'text' }}" autocomplete="off">
+              <span class="input-group-text" style="height: 40px;" (click)="togglePasswordVisibility('password')">
+                  <i class="fa-solid fa-unlock"></i>
+              </span>
+            </div>
+          </div>
+          
+          <!-- <div>
+            <label>Confirm Password <span class="text-danger">*</span></label><br>
+            <div class="input-group d-flex justify-content-center align-items-center">
+              <input class="form-control" formControlName="conformPassword" placeholder="Enter your password" type="{{ conformPasswordHidden ? 'password' : 'text' }}" autocomplete="off">
+              <span class="input-group-text" style="height: 40px;" (click)="togglePasswordVisibility('conformPassword')">
+                  <i class="fa-solid fa-unlock"></i>
+              </span>
+            </div>
+            <div *ngIf="signUpForm.errors?.['mismatch']" class="text-danger">
+                  Passwords do not match.
+                </div>
+          </div> -->
+    
+          <div class="pt-3 text-center">
+            <button class="btn btn-primary" (click)="onSignUp()" type="submit">Sign Up </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    

@@ -1,0 +1,88 @@
+<div class="container mt-5">
+      
+      <div class="card p-5 pt-3 ">
+            <div class="pb-4 text-end" style="cursor: pointer; color: white">
+                <span (click)="backToDashboard()" >X</span>
+            </div>
+        <form [formGroup]="studentForm" (ngSubmit)="saveStudent()">
+          <div class="form-group">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label class="inside-clr">Student Id</mat-label>
+              <input matInput formControlName="studentId" placeholder="Student Id" [disabled]="true">
+              <mat-icon style=" color: #c2185b" matSuffix>sentiment_very_satisfied</mat-icon>
+            </mat-form-field>
+          </div>
+    
+          <div class="form-group">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label class="inside-clr">Student Name</mat-label>
+              <input matInput formControlName="studentName" placeholder="Student Name">
+              <mat-icon style=" color: #c2185b" matSuffix>person</mat-icon>
+            </mat-form-field>
+          </div>
+    
+          <div class="form-group">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label class="inside-clr">Contact Number</mat-label>
+              <input type="number" matInput formControlName="studentContactNumber" placeholder="Contact Number">
+              <mat-icon style=" color: #c2185b" matSuffix>call</mat-icon>
+            </mat-form-field>
+          </div>
+    
+          <div class="form-group">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label class="inside-clr">Address</mat-label>
+              <input matInput formControlName="studentAddress" placeholder="Address">
+              <mat-icon style=" color: #c2185b" matSuffix>apartment</mat-icon>
+            </mat-form-field>
+          </div>
+    
+          <div class="form-group">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label class="inside-clr">Choose your department</mat-label>
+              <mat-select formControlName="studentDepartment" placeholder="Select Department">
+                <mat-option value="Maths">Maths</mat-option>
+                <mat-option value="Physics">Physics</mat-option>
+                <mat-option value="Social">Social</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+    
+          <div class="form-group">
+            <label class="inside-clr">Gender : </label><br>
+            <mat-radio-group formControlName="studentGender">
+              <mat-radio-button value="Male">Male</mat-radio-button>
+              <mat-radio-button value="Female">Female</mat-radio-button>
+              <mat-radio-button value="Others">Others</mat-radio-button>
+            </mat-radio-group>
+          </div>
+    
+          <div class="form-group">
+            <mat-form-field appearance="outline" class="w-100 mt-2">
+              <mat-label class="inside-clr">Student Skills</mat-label>
+              <input matInput formControlName="studentSkills" placeholder="Student Skills">
+              <mat-icon style=" color: #c2185b" matSuffix>menu_book</mat-icon>
+            </mat-form-field>
+          </div>
+    
+          <div class="form-group">
+            <label class="inside-clr">Skills : </label>
+            <section class="example-section">
+              <mat-checkbox (change)="onSkillsChanges($event, 'Hindi')" [checked]="checkSkills('Hindi')">Hindi</mat-checkbox>
+              <mat-checkbox (change)="onSkillsChanges($event, 'English')" [checked]="checkSkills('English')">English</mat-checkbox>
+              <mat-checkbox (change)="onSkillsChanges($event, 'Telugu')" [checked]="checkSkills('Telugu')">Telugu</mat-checkbox>
+              <mat-checkbox (change)="onSkillsChanges($event, 'Kanada')" [checked]="checkSkills('Kanada')">Kanada</mat-checkbox>
+            </section>
+          </div>
+    
+          <div class="text-center mt-3">
+            <button mat-raised-button type="button" class="m-2" (click)="studentForm.reset()">Clear</button>
+
+            <button mat-raised-button color="primary" [disabled]="!studentForm.valid"
+             type="submit" class="m-2">Save</button>
+
+          </div>
+        </form>
+      </div>
+    </div>
+    
