@@ -77,10 +77,12 @@ export class DashboardComponent {
   //   this.router.navigate(['/add-student', studentId]);
   // }
 
-  updatestudent(studentId: number) {
-    console.log(studentId)
-    this.router.navigate(['/add-student'], { queryParams: { studentId: studentId } });
+
+  updatestudent(student: Student) {
+    console.log(student);
+    this.router.navigate(['/add-student'], { queryParams: { user: JSON.stringify(student) } });
   }
+  
 
   goToAddStudent() {
    this.router.navigate(['/add-student'])

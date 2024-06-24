@@ -7,7 +7,7 @@
             <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
           </div>
           <span>Use your Login Credentials</span>
-          <input type="email" placeholder="Email" id="email" name="email" [(ngModel)]="loginForm.value.email" #email="ngModel" required email />
+          <input type="email" placeholder="Email" id="email" name="email" [(ngModel)]="loginForm.value.email" #email="ngModel" required />
           <div *ngIf="email.invalid && (email.dirty || email.touched)" class="text-danger">
             <div *ngIf="email.errors?.['email']">Invalid email format.</div>
             <div *ngIf="email.errors?.['required']">Email is required.</div>

@@ -47,9 +47,17 @@ export class AddStudentComponent {
   ) {}
 
   ngOnInit(): void {
-    this.student = this.activatedRoute.snapshot.data['studentId'];
+    this.activatedRoute.queryParams.subscribe(params => {
+      console.log('Query Params:', params);
+      if (params['user']) {
+        console.log('User Param:', params['user']);
+        this.student = JSON.parse(params['user']);
+        console.log('Parsed Student:', this.student);
+        this.isCreateStudent = false;
+      }
+      this.initForm();
+    }); 
     console.log(this.student);
-    this.initForm(); 
   }
 
   private initForm(): void {
@@ -60,13 +68,13 @@ export class AddStudentComponent {
       studentAddress: [this.student?.studentAddress || '', Validators.required],
       studentDepartment: [this.student?.studentDepartment || '', Validators.required],
       studentGender: [this.student?.studentGender || '',  Validators.required],
-      studentSkills: [this.student?.studentSkills || '',  Validators.required]
+      studentSkills: [{ value: this.student?.studentSkills || '', disabled: true }, Validators.required]
     });
 
     if (this.student && this.student.studentId > 0) {
       this.isCreateStudent = false;
       if (this.student.studentSkills) {
-        this.skills = this.student.studentSkills.split(',');
+        this.skills = this.student.studentSkills.split(', ');
       }
     }
   }
@@ -82,7 +90,7 @@ export class AddStudentComponent {
           this.skills.splice(index, 1);
         }
       }
-      skills.setValue(this.skills.join(','));
+      skills.setValue(this.skills.join(', '));
     }
   }
 

@@ -48,7 +48,7 @@ export class APISERVICE {
     return this.httpClient.get<Student>(`${this.api}/students/get/${studentId}`);
   }
 
-  public updatestudent(student: Student) {
-    return this.httpClient.put<Student>(`${this.api}/students/update/`, student.studentId);
+  public updatestudent(student: Student): Observable<Student> {
+    return this.httpClient.put<Student>(`${this.api}/students/update/`, student);
   }
 }
